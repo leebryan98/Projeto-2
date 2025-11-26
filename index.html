@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projeto 2</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./main.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <img src="./imagensCadastro/CapaTelefone.png" alt="Telefone">
+            <h1>Tabela de cadastramento</h1>
+        </header>
+        <form id="form-cliente">
+            <input id="nome-cliente" type="text" placeholder="Insira seu nome completo" required/>
+            <input id="telefone-cliente" type="tel" placeholder="(DDD) Número de telefone" required minlength="12" maxlength="12"/>
+            <button type="submit">Cadastrar</button>
+            <p class="success-message"></p>
+            <p class="erro-message">
+                O nome precisa ser completo para cadastrar o cliente!
+            </p>
+        </form>
+        <table>
+            <thead>
+                <tr>
+                    <th>
+                        Nome do cliente
+                    </th>
+                    <th>
+                        Número do cliente
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+    <script src="./main.js"></script>
+</body>
+</html>
