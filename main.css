@@ -11,9 +11,9 @@ body {
 }
 
 .container {
-    max-width: 960px;
+    max-width: 650px;
     width: 100%;
-    margin: 100px auto;
+    margin: 0px auto;
 }
 
 header img {
@@ -32,9 +32,8 @@ header h1 {
 }
 
 form {
-    max-width: 640px;
+    max-width: 650px;
     width: 100%;
-    margin-right: 16px;
 }
 
 form input {
@@ -59,13 +58,15 @@ button:hover {
 thead th {
     font-size: 24px;
     padding: 16px;
-    margin-top: 100px;
+    border-bottom: 2px solid black;
+    font-weight: bold;
 }
 
 tbody td{
     text-align: center;
     padding: 16px;
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    font-size: 18px;
 }
 
 .erro-message {
