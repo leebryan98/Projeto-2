@@ -1,9 +1,9 @@
 const form = document.getElementById('form-cliente');
 const nomeCliente = document.getElementById('nome-cliente');
 const telefoneCliente = document.getElementById('telefone-cliente');
-const mensagemSucessoContainer = document.querySelector('.success-message');
-const mensagemErroContainer = document.querySelector('.erro-message');
-formEValido = false;
+const sucessoMensagemContainer = document.querySelector('.success-message');
+const erroMensagemContainer = document.querySelector('.erro-message');
+let formEValido = false;
 let linhas = '';
 
 function validaNome(nomeCompleto) {
@@ -14,15 +14,25 @@ function validaNome(nomeCompleto) {
 form.addEventListener('submit', function(e) {
     e.preventDefault();
 
-    const sucessoMensagem = `Cliente cadastrado com sucesso!`;
+    const sucessoMensagem = `Muito bem, cliente foi cadastrado com sucesso!`;
 
     formEValido = validaNome(nomeCliente.value);
 
-    if(formEValido) {
-        mensagemSucessoContainer.innerHTML = sucessoMensagem;
-        mensagemSucessoContainer.style.display = 'block';
-        mensagemErroContainer.style.display = 'none';
+    if (formEValido) {
+        sucessoMensagemContainer.innerHTML = sucessoMensagem;
+        sucessoMensagemContainer.style.display = 'block';
+        erroMensagemContainer.style.display = 'none';
+    } else {
+        erroMensagemContainer.style.display = 'block';
+        sucessoMensagemContainer.style.display = 'none';
+    }
+    
+    adicionaLinha();
+    atualizaTabela();
 
+})
+
+function adicionaLinha() {
         let linha = '<tr>';
         linha += `<td> ${nomeCliente.value}</td>`;
         linha += `<td> ${telefoneCliente.value}</td>`;
@@ -32,25 +42,23 @@ form.addEventListener('submit', function(e) {
 
         nomeCliente.value = '';
         telefoneCliente.value = '';
-    } else {
-        mensagemErroContainer.style.display = 'block';
-        mensagemSucessoContainer.style.display = 'none';
-    }
+}
 
+function atualizaTabela(){
     const corpoTabela = document.querySelector('tbody');
     corpoTabela.innerHTML = linhas;
-})
+}
 
 nomeCliente.addEventListener('keyup', function(e) {
     console.log(e.target.value);
     formEValido = validaNome(e.target.value);
-    
-    if(!formEValido) {
+
+    if(!formEValido){
         nomeCliente.classList.add('error');
-        mensagemErroContainer.style.display = 'block';
-        mensagemSucessoContainer.style.display = 'none';
+        erroMensagemContainer.style.display = 'block';
+        sucessoMensagemContainer.style.display = 'none';
     } else {
         nomeCliente.classList.remove('error');
-        mensagemErroContainer.style.display = 'none';
+        erroMensagemContainer.style.display = 'none';
     }
 });
